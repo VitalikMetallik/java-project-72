@@ -19,16 +19,19 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.3')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
+
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
+
 jacocoTestReport {
     dependsOn test
     reports {
         xml.required = true
     }
 }
+
 application {
     mainClass = 'hexlet.code.App'
 }
