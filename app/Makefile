@@ -1,29 +1,13 @@
-# Makefile
-
-.DEFAULT_GOAL := build-run
-
-install:
-	./gradlew install
-
-run-dist:
-	# Очистка от результатов предыдущей сборки
-	./gradlew clean
-
-build:
-	./gradlew build
-
-run:
-	./gradlew run
+lint:
+	@./gradlew checkstyleMain checkstyleTest
 
 test:
-	./gradlew test
+	@./gradlew test
+
+build:
+	@./gradlew clean build
 
 report:
-	./gradlew jacocoTestReport
-
-lint:
-	./gradlew checkstyleMain
-
-build-run: build run
+	@./gradlew jacocoTestReport
 
 .PHONY: build
