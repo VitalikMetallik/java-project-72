@@ -6,11 +6,14 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.freefair.lombok") version "8.6"
 }
+
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
 }
+
 dependencies {
     implementation("com.h2database:h2:2.2.224")
     implementation('com.zaxxer:HikariCP:5.1.0')
@@ -27,16 +30,19 @@ dependencies {
     testImplementation('org.assertj:assertj-core:3.26.3')
     testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 }
+
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
+
 jacocoTestReport {
     dependsOn test
     reports {
         xml.required = true
     }
 }
+
 application {
     mainClass = 'hexlet.code.App'
 }
